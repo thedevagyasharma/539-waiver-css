@@ -1,0 +1,128 @@
+
+@keyframes fadeIn {
+    0% {
+      opacity: 0%;
+    }
+    100% {
+      opacity: 100%;
+    }
+  }
+
+.logo{
+    animation: 10s fadeIn;
+}
+
+@media (prefers-reduced-motion){
+    .logo{
+        animation: none;
+    }
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.container figure img{
+    width: 100%;
+    height: auto;
+}
+
+.container figcaption{
+    text-align: center;
+    text-transform: capitalize;
+}
+
+
+@media (min-width: 535px) {
+  .container {
+    width: 375px;
+  }
+}
+
+@media (min-width: 650px){
+    .jump:focus {
+        top: 0;
+    }
+    
+    .container{
+        grid-template-columns: 25% 25% 25%;
+        width: 95%;
+        background: url("../images/concrete_seamless.png") ;
+        justify-content: space-around;
+    }
+    .container figure{
+        grid-column: span 2;
+    }
+    .container figure:nth-child(odd){
+        grid-column: 1/span 2;
+    }
+    .container figure:nth-child(even){
+        grid-column: 2/span 2;
+    }
+}
+
+@media (min-width: 750px){
+    .container{
+        grid-template-columns: repeat(4, 20%);
+        justify-content: space-between;
+    }
+    .container figure:nth-child(n){
+        grid-column: span 2;
+    }
+    .container figure:last-child{
+        grid-column: 2 / span 2;
+    }
+}
+
+@media (min-width: 900px){
+
+    .container{
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .container figure:nth-child(n){
+        width: 20%;
+    }
+    .container figure:nth-child(4n){
+        width: 40%;
+        border: 10px solid black;
+    }
+    .container figure:nth-child(2){
+        order: 1;
+    }
+}
+
+@media (min-width: 1050px){
+
+    .container{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        justify-items: center;
+        overflow: hidden;
+    }
+
+    .container figure:nth-child(n){
+        width: 70%;
+        margin-bottom: 20px;
+        order: 0;
+        grid-column: auto;
+        
+    }
+
+    .container figure:nth-child(odd){
+        transform: rotate(-15deg);
+    }
+
+    .container figure:nth-child(even){
+        transform: rotate(15deg);
+    }
+
+    .container figure:last-child{
+        grid-column: span 2;
+        transform: rotate(0deg);
+    }
+}
